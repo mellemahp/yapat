@@ -21,3 +21,10 @@ license = "MIT/Apache-2.0"
         methods = ["GET"]
         auth = ["NONE"]
         handler = "views.hiya"
+
+    [[routes.things]]
+        description = "DO SOME STUFF"
+        route = "/things"
+        methods = ["POST"]
+        auth = ["NONE"]
+        handler = "views.things"

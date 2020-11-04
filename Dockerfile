@@ -13,19 +13,17 @@ RUN apk add --update --no-cache \
 WORKDIR /app/
 
 # Install the auto_restart script
-COPY auto_restart.sh /app/
+COPY auto_restart.sh .
 RUN chmod +x auto_restart.sh
 
 # Install all python dependencies
-COPY requirements.dev.txt .
+COPY requirements.txt .
 RUN pip3 install --upgrade pip
-RUN pip3 install --no-cache-dir -r requirements.dev.txt && \
-    rm requirements.dev.txt
+RUN pip3 install --no-cache-dir -r requirements.txt && \
+    rm requirements.txt
 
 # Copy all the base code of the python application to container
-COPY ./code/ /app/ 
-
-ENV PYTHON_PORT=5000
+COPY ./code/ .
 
 EXPOSE 80
 

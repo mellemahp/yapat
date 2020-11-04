@@ -35,9 +35,9 @@ main() {
         -d|--development)
             echo -e "[${GREEN}${PROJECT_NAME}:app${NC}] Building new docker image ${YELLOW}${PROJECT_NAME}-${PROJECT_VERSION}-dev:${CURRENT_COMMIT}${NC}"
             docker build -t ${PROJECT_NAME}-${PROJECT_VERSION}-dev:${CURRENT_COMMIT} -f Dockerfile .
-            echo -e "[${GREEN}${PROJECT_NAME}:app${NC}] Starting ${YELLOW}${PROJECT_NAME}-${PROJECT_VERSION}-dev:${CURRENT_COMMIT}${NC} on ${RED}${PYTHON_PORT}${NC}"
+            echo -e "[${GREEN}${PROJECT_NAME}:app${NC}] Starting ${YELLOW}${PROJECT_NAME}-${PROJECT_VERSION}-dev:${CURRENT_COMMIT}${NC} on ${RED}8080${NC}"
             echo -e "[${GREEN}${PROJECT_NAME}:app${NC}] ${RED}AutoRestart Enabled${NC}"
-            docker run -it --rm -v $(pwd)/code/app:/app/app -p ${PYTHON_PORT}:80 ${PROJECT_NAME}-${PROJECT_VERSION}-dev:${CURRENT_COMMIT}
+            docker run -it --rm -v $(pwd)/code/app:/app/app -p 8080:80 ${PROJECT_NAME}-${PROJECT_VERSION}-dev:${CURRENT_COMMIT}
         ;; 
 
         -p|--production)
